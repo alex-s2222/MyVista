@@ -1,7 +1,6 @@
 import pdfplumber 
 import aiofiles
 
-from pprint import pprint
 
 class ConverterPdfHtml:
     def __init__(self):
@@ -12,7 +11,7 @@ class ConverterPdfHtml:
 
         html.extend(Header.add_header())
 
-        with pdfplumber.open('эритроцитов (протокол).pdf') as pdf:
+        with pdfplumber.open('test_data/szv.pdf') as pdf:
             for page in pdf.pages:
                 p = Page(page=page)
                 page = await p.convert_to_html()
